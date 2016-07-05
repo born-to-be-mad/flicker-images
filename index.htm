@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us" ng-app="weatherApp">
+<html lang="en-us" ng-app="flickerApp">
 <head>
     <title>AngularJS Weather Forecast SPA</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -16,25 +16,31 @@
     </style>
 
     <!-- load angular via CDN -->
-    <script src="//code.angularjs.org/1.3.0-rc.2/angular.min.js"></script>
-    <script src="//code.angularjs.org/1.3.0-rc.2/angular-route.min.js"></script>
-    <script src="//code.angularjs.org/1.3.0-rc.2/angular-resource.min.js"></script>
-    <script src="https://cdn.rawgit.com/angular-ui/bower-ui-grid/master/ui-grid.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/lodash/3.10.1/lodash.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/restangular/1.3.1/restangular.js"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-resource/1.5.7/angular-resource.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/3.2.5/ui-grid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash-compat/3.10.2/lodash.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/restangular/1.3.1/restangular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src=" //cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.js"></script>
+
 
 
     <script src="app.js"></script>
     <script src="config.js"></script>
     <script src="constants.js"></script>
+    <script src="directives/directives.js"></script>
+
     <script src="services/logger.service.js"></script>
     <script src="services/data.service.js"></script>
     <script src="services/city.service.js"></script>
-    <script src="controllers.js"></script>
-    <script src="directives.js"></script>
+
+    <script src="controllers/home.controller.js"></script>
+    <script src="controllers/photos.controller.js"></script>
+    <script src="controllers/forecast.controller.js"></script>
+
 </head>
 <body>
 

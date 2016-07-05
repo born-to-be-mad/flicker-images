@@ -1,8 +1,8 @@
 // DIRECTIVES
-weatherApp.directive("weatherReport", function() {
+flickerApp.directive("weatherReport", function() {
    return {
        restrict: 'E',
-       templateUrl: 'directives/weatherReport.html',
+       templateUrl: 'weatherReport.html',
        replace: true,
        scope: {
            weatherDay: "=",

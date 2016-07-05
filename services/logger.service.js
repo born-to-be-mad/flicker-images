@@ -1,10 +1,9 @@
 (function () {
     'use strict';
 
-    weatherApp.factory('logger', logger);
+    flickerApp.factory('logger', logger);
 
     logger.$inject = ['$log', 'toastr'];
-    // logger.$inject = ['$log'];
 
     function logger($log, toastr) {
         var service = {

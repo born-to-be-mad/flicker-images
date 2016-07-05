@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    weatherApp.config(configFn);
+    flickerApp.config(configFn);
     configFn.$inject = [
         '$routeProvider',
         'RestangularProvider',
@@ -11,11 +11,11 @@
                       RestangularProvider,
                       toastr) {
 
-        configurToast();
+        configureToast();
         configureRoutes();
         configureRestfullServices();
 
-        function configurToast() {
+        function configureToast() {
             toastr.options.timeOut = 4000;
             toastr.options.positionClass = 'toast-bottom-right';
             toastr.options.closeButton = true;

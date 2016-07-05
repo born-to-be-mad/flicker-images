@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    weatherApp.service('cityService', cityService);
+    flickerApp.service('cityService', cityService);
 
     function cityService() {
 

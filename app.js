@@ -1,5 +1,4 @@
-// MODULE
-var weatherApp = angular.module('weatherApp',
+var flickerApp = angular.module('flickerApp',
     [
         'restangular',
         'ngRoute',

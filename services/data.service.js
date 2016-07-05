@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    weatherApp.service('dataservice', dataserviceFn);
+    flickerApp.service('dataservice', dataserviceFn);
 
     dataserviceFn.$inject = ['Restangular', 'logger'];
 

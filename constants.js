@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    weatherApp
+    flickerApp
         .constant('toastr', toastr)
         .constant('moment', moment);
 })();
