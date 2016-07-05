@@ -4,27 +4,32 @@
     flickerApp
         .controller('photosController', photosControllerFn);
 
-    photosControllerFn.$inject = ['dataservice', 'logger'];
+    photosControllerFn.$inject = [
+        '$routeParams',
+        'dataservice',
+        'logger'
+    ];
 
-    function photosControllerFn(dataservice,
+    function photosControllerFn($routeParams,
+                                dataservice,
                                 logger) {
 
         var vm = this;
+        var currentPage = $routeParams.page || '1';
         vm.photos = [];
         vm.getLinkToPhoto = getLinkToPhoto;
         vm.getPhotoPreview = getPhotoPreview;
+        vm.getCountInfo = getCountInfo;
 
         activate();
 
         function activate() {
             logger.info('Start reading photos...');
-            /*return getPhotos().then(function () {
-             });*/
             getPhotos();
         }
 
         function getPhotos() {
-            return dataservice.getPublicPhotos()
+            return dataservice.getPublicPhotos(currentPage)
                 .then(function (data) {
                     vm.photos = data.photos;
                     return vm.photos;
@@ -53,6 +58,20 @@
                 '_t.jpg';
         }
 
+        function getCountInfo() {
+            var res = '';
+            res += 'Shown ';
+            var photosLength = (vm.photos && vm.photos.photo && vm.photos.photo.length) || 0;
+            var page = (vm.photos && vm.photos.page) || 1;
+            var perpage = (vm.photos && vm.photos.perpage) || 0;
+            res += photosLength;
+            res += '( from ';
+            res += (page - 1) * perpage + 1;
+            res += ' to ';
+            res += (page - 1) * perpage + photosLength;
+            res += ')';
+            return res;
+        }
 
     }
 

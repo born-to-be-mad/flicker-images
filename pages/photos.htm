@@ -2,8 +2,29 @@
     <a href="#/">Back to Home</a>
 </p>
 
-<h5>Shown <b>{{vm.photos.photo.length}}</b> from <b>{{ vm.photos.total}}</b> photos.
-    Page <b>{{vm.photos.page}}</b> from <b>{{vm.photos.pages}}</b> pages.</h5>
+<h5>Shown
+    <b>{{vm.getCountInfo()}}
+    </b>
+    from
+    <b>{{ vm.photos.total}}
+    </b> photos.
+    Page
+
+    <a class="btn btn-primary"
+       role="button"
+       href="#/photos/{{vm.photos.page-1}}"
+       ng-show="vm.photos.page>1"> << </a>
+
+    <b>{{vm.photos.page}}</b>
+
+    <a class="btn btn-primary"
+       role="button"
+       href="#/photos/{{vm.photos.page+1}}"
+       ng-show="vm.photos.page<vm.photos.pages"> <span>>></span> </a>
+
+    from <b>{{vm.photos.pages}}</b> pages.
+</h5>
+
 <input type="text" ng-model="search" class="search-query" placeholder="Search">
 
 <table class="table table-striped">
@@ -16,8 +37,8 @@
     </thead>
     <tbody>
     <tr ng-repeat="photo in vm.photos.photo | filter:search | orderBy:'owner'">
-        <td>{{photo.id}}</td>
-        <td>{{photo.title}}</td>
+        <td>{{::photo.id}}</td>
+        <td>{{::photo.title}}</td>
         <td>
             <a ng-href="{{vm.getLinkToPhoto(photo)}}"
                target="_blank">

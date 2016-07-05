@@ -32,7 +32,11 @@
                     controller: 'photosController',
                     controllerAs: 'vm'
                 })
-
+                .when('/photos/:page', {
+                    templateUrl: 'pages/photos.htm',
+                    controller: 'photosController',
+                    controllerAs: 'vm'
+                })
                 .when('/forecast', {
                     templateUrl: 'pages/forecast.htm',
                     controller: 'forecastController'

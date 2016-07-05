@@ -13,8 +13,11 @@
         };
         return service;
 
-        function getPublicPhotos() {
-            return Restangular.one('rest?method=flickr.people.getPublicPhotos').get()
+        function getPublicPhotos(page) {
+            var params = {
+                page: page || 0
+            };
+            return Restangular.one('rest?method=flickr.people.getPublicPhotos').get(params)
                 .then(getPublicPhotosComplete)
                 .catch(getPublicPhotosFailed);
 
