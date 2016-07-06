@@ -13,19 +13,23 @@
     <a class="btn btn-primary"
        role="button"
        href="#/photos/{{vm.photos.page-1}}"
-       ng-show="vm.photos.page>1"> << </a>
+       ng-show="vm.photos.page>1">&nbsp;<<&nbsp;</a>
 
     <b>{{vm.photos.page}}</b>
 
     <a class="btn btn-primary"
        role="button"
        href="#/photos/{{vm.photos.page+1}}"
-       ng-show="vm.photos.page<vm.photos.pages"> <span>>></span> </a>
+       ng-show="vm.photos.page<vm.photos.pages"> <span>&nbsp;>>&nbsp;</span> </a>
 
     from <b>{{vm.photos.pages}}</b> pages.
 </h5>
 
-<input type="text" ng-model="search" class="search-query" placeholder="Search">
+<form class="form-inline">
+    <input type="text" ng-model="vm.search" class="form-control search-query" placeholder="Search">
+    <button type="button" class="btn btn-secondary" ng-click="vm.search=''">Clear</button>
+    <span>Filter results: {{vm.filteredItems.length}}</span>&nbsp;
+</form>
 
 <table class="table table-striped">
     <thead>
@@ -36,13 +40,14 @@
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="photo in vm.photos.photo | filter:search | orderBy:'owner'">
+    <tr ng-repeat="photo in vm.filteredItems = (vm.photos.photo | filter:vm.search | orderBy:'owner')">
         <td>{{::photo.id}}</td>
         <td>{{::photo.title}}</td>
         <td>
             <a ng-href="{{vm.getLinkToPhoto(photo)}}"
                target="_blank">
-                <img ng-src="{{vm.getPhotoPreview(photo)}}"
+                <img class="img-circle"
+                     ng-src="{{vm.getPhotoPreview(photo)}}"
                      alt="View image"/>
                 View
             </a>

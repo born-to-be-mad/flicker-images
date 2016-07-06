@@ -4,17 +4,19 @@
     flickerApp.controller('homeController', homeController);
 
     homeController.$inject = [
+        '$location',
         '$scope',
         'cityService'
     ];
 
-    function homeController($scope,
+    function homeController($location,
+                            $scope,
                             cityService) {
-
-        $scope.city = cityService.city;
-        $scope.$watch('city', function () {
-            cityService.city = $scope.city;
-        });
+        $location.path("photos");
+        /*$scope.city = cityService.city;
+         $scope.$watch('city', function () {
+         cityService.city = $scope.city;
+         });*/
 
     }
 
